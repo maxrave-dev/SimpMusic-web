@@ -16,7 +16,7 @@ const store = [
     name: "Github",
     url: "https://github.com/maxrave-dev/SimpMusic/releases",
     thumbnail:
-      "https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png",
+      "https://raw.githubusercontent.com/NeoApplications/Neo-Backup/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png",
   },
 ];
 const DownloadSection = () => {
@@ -46,9 +46,14 @@ const DownloadSection = () => {
           </div>
           <div className="grid grid-cols-1 justify-center">
             {store.map((item, key) => (
-              <Image key={key} width={80} alt={item.name} src={item.thumbnail}>
-                <Link href={item.url}></Link>
-              </Image>
+              <Link href={item.url} key={key}>
+                <Image
+                  height={111}
+                  width={288}
+                  alt={item.name}
+                  src={item.thumbnail}
+                ></Image>
+              </Link>
             ))}
           </div>
         </div>
