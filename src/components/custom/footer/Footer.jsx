@@ -1,0 +1,100 @@
+"use client";
+import { Card, CardBody, CardHeader, Image, Link } from "@nextui-org/react";
+import React from "react";
+import { TbBrandNextjs } from "react-icons/tb";
+
+const communities = [
+  {
+    title: "Discord",
+    description: "Join our Discord server to get in touch with the community.",
+    thumbnail:
+      "https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg",
+    url: "https://discord.gg/Rq5tWVM9Hg",
+  },
+  {
+    title: "GitHub",
+    description: "Contribute to the project on GitHub or create an issue.",
+    thumbnail:
+      "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    url: "https://github.com/maxrave-dev/SimpMusic",
+  },
+  {
+    title: "Crowdin",
+    description: "Help us translate the app into your language.",
+    thumbnail:
+      "https://support.crowdin.com/assets/logos/symbol/svg/crowdin-symbol-cDark.svg",
+    url: "https://crowdin.com/project/simpmusic",
+  },
+];
+const Footer = () => {
+  return (
+    <div className="relative isolate px-6 py-28 lg:px-8">
+      <div
+        className="absolute mt-14 inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        aria-hidden="true"
+      >
+        <div
+          className="pt-24 relative right-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-br from-[#80e6ff] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          style={{
+            clipPath:
+              "polygon(55% 27%, 64% 30%, 71% 38%, 80% 44%, 85% 42%, 94% 51%, 92% 61%, 70% 74%, 48% 51%, 46% 34%)",
+          }}
+        ></div>
+      </div>
+      <div>
+        <h2 className="scroll-m-20 text-center text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+          Community
+        </h2>
+        <h4 className="scroll-m-20 text-xl text-center font-semibold tracking-tight">
+          Get involved in our community. Everyone is welcome!
+        </h4>
+      </div>
+      <div className="mx-21 my-10 flex flex-wrap justify-center justify-items-center gap-12">
+        {communities.map((item, key) => (
+          <Card
+            key={key}
+            isBlurred
+            isPressable
+            onPress={() => window.open(item.url, "_blank")}
+            className="text-center shrink py-7 px-10 hover:shadow-2xl transition-all duration-300 ease-in-out w-96"
+          >
+            <CardHeader className="flex gap-3">
+              <Image
+                alt="logo"
+                height={40}
+                radius="sm"
+                src={item.thumbnail}
+                width={40}
+              />
+              <div className="flex flex-col">
+                <h3 className="text-center text-xl font-bold tracking-tight lg:text-2xl bg-clip-text py-2 text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+                  {item.title}
+                </h3>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <h3 className="text-md">{item.description}</h3>
+            </CardBody>
+          </Card>
+        ))}
+      </div>
+      <div className="pt-20 grid grid-cols-1 justify-items-center">
+        <p className="text-center text-gray-400/80 text-md">
+          © 2023 SimpMusic - Nguyen Duc Tuan Minh
+        </p>
+        <Link
+          className="self-center text-center text-gray-400/80 text-md"
+          isExternal
+          showAnchorIcon
+          href="https://nextjs.org/"
+          color="foreground"
+          anchorIcon={<TbBrandNextjs />}
+        >
+          Build with Next.js
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Footer;

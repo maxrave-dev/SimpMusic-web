@@ -1,0 +1,36 @@
+import { Quicksand } from "next/font/google";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+import Providers from "./providers";
+import Header from "@/components/custom/header/Header";
+import Footer from "@/components/custom/footer/Footer";
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
+export const metadata = {
+  title: "SimpMusic",
+  description: "A simple music app using YouTube Music for backend",
+};
+
+const RootLayout = ({ children }) => {
+  return (
+    <html lang="en" className="dark">
+      <body
+        className={cn(
+          "min-h-screen bg-background quicksand antialiased",
+          quicksand.variable
+        )}
+      >
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
+      </body>
+    </html>
+  );
+};
+export default RootLayout;
