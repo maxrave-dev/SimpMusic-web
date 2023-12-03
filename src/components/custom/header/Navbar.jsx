@@ -56,9 +56,11 @@ export default function Navbar() {
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarBrand className="" justify="start">
           <Logo />
-          <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
-            SimpMusic
-          </h1>
+          <Link href="/">
+            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+              SimpMusic
+            </h1>
+          </Link>
         </NavbarBrand>
         {menus.map((menu, index) => (
           <NavbarItem key={index}>

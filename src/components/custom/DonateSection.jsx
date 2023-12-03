@@ -1,25 +1,10 @@
-import { Image, Link } from "@nextui-org/react";
 import React from "react";
-const store = [
-  {
-    name: "Fdroid",
-    url: "https://f-droid.org/packages/com.maxrave.simpmusic/",
-    thumbnail: "https://fdroid.gitlab.io/artwork/badge/get-it-on.png",
-  },
-  {
-    name: "IzzyOnDroid",
-    url: "https://apt.izzysoft.de/fdroid/index/apk/com.maxrave.simpmusic",
-    thumbnail:
-      "https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png",
-  },
-  {
-    name: "Github",
-    url: "https://github.com/maxrave-dev/SimpMusic/releases",
-    thumbnail:
-      "https://raw.githubusercontent.com/NeoApplications/Neo-Backup/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png",
-  },
-];
-const DownloadSection = () => {
+import { Image, Button } from "@nextui-org/react";
+import { TbBrandPaypalFilled } from "react-icons/tb";
+import Link from "next/link";
+import { SiBuymeacoffee } from "react-icons/si";
+
+const DonateSection = () => {
   return (
     <section className="download-section ">
       <div className="relative isolate px-6 py-20 lg:px-8">
@@ -36,28 +21,44 @@ const DownloadSection = () => {
           ></div>
         </div>
         <div className="mx-auto place-items-center py-21 sm:py-35 lg:py-42 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <div>
+          <div className="sm:mx-7 lg:mx-20">
             <h2 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
-              Get SimpMusic now!
+              Keep SimpMusic always free and no-ads!
             </h2>
             <h4 className="scroll-m-20 text-xl font-semibold tracking-tight blink">
-              SimpMusic is available on Android. Download it now!
+              Help us to keep energy and time to develop SimpMusic
             </h4>
-            <p className="py-4 text-sm text-gray-500/80">
-              Support Android 8.0 above and Android Auto
-            </p>
           </div>
           <div className="grid grid-cols-1 justify-center">
-            {store.map((item, key) => (
-              <Link href={item.url} key={key}>
-                <Image
-                  height={111}
-                  width={288}
-                  alt={item.name}
-                  src={item.thumbnail}
-                ></Image>
+            <Button
+              color="primary"
+              size="lg"
+              radius="md"
+              endContent={<TbBrandPaypalFilled />}
+              className="mb-7"
+            >
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://paypal.me/maxraveofficial"
+              >
+                <p className="font-semibold">Donate via PayPal </p>
               </Link>
-            ))}
+            </Button>
+            <Button
+              color="primary"
+              size="lg"
+              radius="md"
+              endContent={<SiBuymeacoffee />}
+            >
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.buymeacoffee.com/maxrave"
+              >
+                <p className="font-semibold">Buy Me A Coffee </p>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
@@ -65,4 +66,4 @@ const DownloadSection = () => {
   );
 };
 
-export default DownloadSection;
+export default DonateSection;

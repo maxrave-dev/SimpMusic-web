@@ -9,13 +9,13 @@ import DownloadInfoSection from "@/components/custom/DownloadInfoSection";
 export default function Home() {
   return (
     <>
-      <div className="px-14">
+      <div className="px-20">
         <IntroSection />
         <DescriptionSection />
         <FeatureSection />
       </div>
       <ScreenshotSection />
-      <div className="px-14">
+      <div className="px-20">
         <DownloadInfoSection />
       </div>
     </>
