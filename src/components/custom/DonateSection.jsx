@@ -31,33 +31,29 @@ const DonateSection = () => {
           </div>
           <div className="grid grid-cols-1 justify-center">
             <Button
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://paypal.me/maxraveofficial"
+              as={Link}
               color="primary"
               size="lg"
               radius="md"
               endContent={<TbBrandPaypalFilled />}
               className="mb-7"
             >
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://paypal.me/maxraveofficial"
-              >
-                <p className="font-semibold">Donate via PayPal </p>
-              </Link>
+              <p className="font-semibold">Donate via PayPal </p>
             </Button>
             <Button
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.buymeacoffee.com/maxrave"
+              as={Link}
               color="primary"
               size="lg"
               radius="md"
               endContent={<SiBuymeacoffee />}
             >
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://www.buymeacoffee.com/maxrave"
-              >
-                <p className="font-semibold">Buy Me A Coffee </p>
-              </Link>
+              <p className="font-semibold">Buy Me A Coffee </p>
             </Button>
           </div>
         </div>
