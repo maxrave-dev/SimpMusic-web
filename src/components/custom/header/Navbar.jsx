@@ -13,6 +13,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import ThemeSwitcher from "../ThemeSwitcher";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const menus = [
@@ -23,6 +24,8 @@ export default function Navbar() {
   ];
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState(false);
+  const pathName = usePathname();
+  console.log("Path name" + pathName);
   if (typeof window !== "undefined") {
     window.onscroll = () => {
       if (window.scrollY > 50) {
@@ -41,19 +44,19 @@ export default function Navbar() {
       className={scroll ? "" : "bg-transparent"}
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className="sm:hidden" justify="start">
+      <NavbarContent className="md:hidden" justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
+      <NavbarContent className="md:hidden pr-3" justify="center">
         <NavbarBrand>
           <Logo />
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+      <NavbarContent className="hidden md:flex gap-4" justify="end">
         <NavbarBrand className="" justify="start">
           <Logo />
           <Link href="/">
@@ -63,11 +66,15 @@ export default function Navbar() {
           </Link>
         </NavbarBrand>
         {menus.map((menu, index) => (
-          <NavbarItem key={index}>
-            <Button color="default" variant="light">
-              <Link color="foreground" href={menu.path}>
-                <p className="font-semibold">{menu.title}</p>
-              </Link>
+          <NavbarItem key={index} isActive={pathName == menu.path}>
+            <Button
+              color="default"
+              variant={pathName == menu.path ? "solid" : "light"}
+              as={Link}
+              size="md"
+              href={menu.path}
+            >
+              <p className="font-semibold">{menu.title}</p>
             </Button>
           </NavbarItem>
         ))}
@@ -78,14 +85,23 @@ export default function Navbar() {
 
       <NavbarMenu>
         {menus.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem
+            key={`${item}-${index}`}
+            isActive={pathName == item.path}
+          >
             <Link
               className="w-full"
               color={"foreground"}
               href={item.path}
               size="lg"
             >
-              <p className="font-semibold">{item.title}</p>
+              <p
+                className={
+                  pathName == item.path ? "font-bold" : "font-semibold"
+                }
+              >
+                {item.title}
+              </p>
             </Link>
           </NavbarMenuItem>
         ))}

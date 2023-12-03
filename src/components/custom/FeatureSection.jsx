@@ -47,7 +47,7 @@ const FeatureSection = () => {
       <h1 className="text-center scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl bg-clip-text py-10 text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
         Feature
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-start">
+      <div className="grid grid-cols-1 mx-14 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-start">
         {features.map((feature, index) => (
           <Card
             key={index}

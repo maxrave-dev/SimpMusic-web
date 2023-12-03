@@ -7,7 +7,7 @@ import { SiBuymeacoffee } from "react-icons/si";
 const DonateSection = () => {
   return (
     <section className="download-section ">
-      <div className="relative isolate px-6 py-20 lg:px-8">
+      <div className="relative isolate px-6 py-28 lg:px-8">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"

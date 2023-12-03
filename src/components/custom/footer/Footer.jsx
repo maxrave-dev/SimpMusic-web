@@ -30,18 +30,18 @@ const Footer = () => {
   return (
     <div className="relative isolate px-6 py-28 lg:px-8">
       <div
-        className="absolute mt-14 inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl"
         aria-hidden="true"
       >
         <div
-          className="pt-24 relative right-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-br from-[#80e6ff] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          className="relative left-[50%] aspect-[3/1] w-full -translate-x-1/2 rotate-[30deg] bg-gradient-to-r from-gradientstart/60 to-gradientend/60 opacity-30"
           style={{
             clipPath:
-              "polygon(55% 27%, 64% 30%, 71% 38%, 80% 44%, 85% 42%, 94% 51%, 92% 61%, 70% 74%, 48% 51%, 46% 34%)",
+              "polygon(45% 55%, 61% 46%, 69% 55%, 78% 66%, 61% 81%, 35% 82%, 20% 75%, 24% 49%)",
           }}
         ></div>
       </div>
-      <div>
+      <div className="py-20">
         <h2 className="scroll-m-20 text-center text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
           Community
         </h2>

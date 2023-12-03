@@ -6,85 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, Progress, Spinner } from "@nextui-org/react";
 import { MdDownload } from "react-icons/md";
-
-async function fetcher() {
-  const res = await fetch(
-    "https://api.github.com/repos/maxrave-dev/SimpMusic/releases"
-  );
-  if (!res.ok) {
-    throw new Error(res.statusText);
-  }
-  return res.json();
-}
-function Download() {
-  const { data, error, isLoading } = useSWR(
-    `https://api.github.com/repos/maxrave-dev/SimpMusic/releases`,
-    fetcher
-  );
-  const nodeRef = useRef();
-
-  useEffect(() => {
-    if (Array.isArray(data)) {
-      let sum = 0;
-      data.forEach((release) => {
-        sum += release.assets[0].download_count;
-      });
-      console.log(sum);
-      const node = nodeRef.current;
-
-      const controls = animate(0, sum, {
-        duration: 1,
-        onUpdate(value) {
-          node.textContent = Intl.NumberFormat("en-US").format(
-            value.toFixed(1)
-          );
-        },
-      });
-
-      return () => controls.stop();
-    }
-  });
-
-  if (isLoading)
-    return <Spinner className="self-center" color="default" size="md" />;
-  if (error) return <p className="text-center">An error has occurred.</p>;
-  if (Array.isArray(data)) {
-    return (
-      <>
-        <h1
-          className="text-center scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl bg-clip-text py-10 text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60"
-          ref={nodeRef}
-        />
-        <h1 className="text-center text-2xl font-semibold tracking-tight lg:text-3xl bg-clip-text py-2 text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
-          Downloads
-        </h1>
-      </>
-    );
-  }
-}
-function Counter({ from, to }) {
-  const nodeRef = useRef();
-
-  useEffect(() => {
-    const node = nodeRef.current;
-
-    const controls = animate(from, to, {
-      duration: 1,
-      onUpdate(value) {
-        node.textContent = value.toFixed(2);
-      },
-    });
-
-    return () => controls.stop();
-  }, [from, to]);
-
-  return (
-    <h1
-      className="text-center scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl bg-clip-text py-10 text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60"
-      ref={nodeRef}
-    />
-  );
-}
+import Download from "./Download";
 
 const DownloadInfoSection = () => {
   return (
@@ -100,14 +22,14 @@ const DownloadInfoSection = () => {
     <section className="download-section">
       <div className="relative isolate px-6 py-28 lg:px-8">
         <div
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl"
           aria-hidden="true"
         >
           <div
-            className="relative right-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-br from-[#80e6ff] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative right-[calc(50%-15rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-br from-[#80e6ff] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             style={{
               clipPath:
-                "polygon(65% 66%, 73% 77%, 84% 69%, 93% 80%, 88% 95%, 71% 97%, 57% 92%, 51% 81%, 54% 67%)",
+                "polygon(57% 25%, 70% 31%, 77% 45%, 66% 56%, 43% 55%, 35% 41%, 41% 29%)",
             }}
           ></div>
         </div>
@@ -115,25 +37,28 @@ const DownloadInfoSection = () => {
           <div>
             <Download />
           </div>
-          <div>
-            <h2 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
-              Be a SimpMusic-er
-            </h2>
-            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-              Download SimpMusic to your Android Device now to get the best
-              experience for streaming music now!
-            </h4>
-            <Button
-              className="mt-8"
-              color="primary"
-              size="lg"
-              radius="lg"
-              endContent={<MdDownload />}
-            >
-              <Link href="/download">
+          <div className="flex flex-col justify-center">
+            <div>
+              <h2 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+                Be a SimpMusic-er
+              </h2>
+              <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+                Download SimpMusic to your Android Device now to get the best
+                experience for streaming music now!
+              </h4>
+            </div>
+            <div className="pt-8">
+              <Button
+                color="primary"
+                size="lg"
+                href="/download"
+                as={Link}
+                radius="lg"
+                endContent={<MdDownload />}
+              >
                 <p className="font-semibold">Download</p>
-              </Link>
-            </Button>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
