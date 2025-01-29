@@ -1,6 +1,8 @@
+"use client";
+
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { MdDownload } from "react-icons/md";
 
 async function fetcher() {
@@ -12,10 +14,15 @@ async function fetcher() {
   }
   return res.json();
 }
-const awaitFetcher = await fetcher();
-const version = awaitFetcher[0].tag_name;
 
 const HomeHeading = () => {
+    const [version, setVersion]= useState("N/A");
+    useEffect(() => {
+        fetcher().then((data) => {
+            setVersion(data[0].tag_name);
+        });
+    }, [version]);
+
   return (
     <div>
       <h2 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
