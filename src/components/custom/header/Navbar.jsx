@@ -14,8 +14,27 @@ import {
 } from "@nextui-org/react";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { usePathname } from "next/navigation";
+import {Github} from "lucide-react";
+import {useEffect, useState} from "react";
+
+async function fetcher() {
+  const res = await fetch(
+      "https://api.github.com/repos/maxrave-dev/SimpMusic?page=1&per_page=1"
+  );
+  if (!res.ok) {
+    throw new Error(res.statusText);
+  }
+  return res.json();
+}
+let formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 export default function Navbar() {
+  const [starCount, setStarCount]= useState("N/A");
+  useEffect(() => {
+    fetcher().then((data) => {
+      setStarCount(data.stargazers_count);
+    });
+  }, [starCount]);
   const menus = [
     { title: "Home", path: "/" },
     { title: "Download", path: "/download" },
@@ -79,31 +98,43 @@ export default function Navbar() {
           </NavbarItem>
         ))}
         <NavbarItem>
+          <Button
+              color="default"
+              variant="light"
+              as={Link}
+              size="md"
+              href="https://github.com/maxrave-dev/SimpMusic"
+              target="_blank"
+          >
+            <Github/> {formatter.format(starCount)}
+          </Button>
+        </NavbarItem>
+        <NavbarItem>
           <ThemeSwitcher></ThemeSwitcher>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
         {menus.map((item, index) => (
-          <NavbarMenuItem
-            key={`${item}-${index}`}
-            isActive={pathName == item.path}
-          >
-            <Link
-              className="w-full"
-              color={"foreground"}
-              href={item.path}
-              size="lg"
+            <NavbarMenuItem
+                key={`${item}-${index}`}
+                isActive={pathName == item.path}
             >
-              <p
-                className={
-                  pathName == item.path ? "font-bold" : "font-semibold"
-                }
+              <Link
+                  className="w-full"
+                  color={"foreground"}
+                  href={item.path}
+                  size="lg"
               >
-                {item.title}
-              </p>
-            </Link>
-          </NavbarMenuItem>
+                <p
+                    className={
+                      pathName == item.path ? "font-bold" : "font-semibold"
+                    }
+                >
+                  {item.title}
+                </p>
+              </Link>
+            </NavbarMenuItem>
         ))}
       </NavbarMenu>
     </NavbarNext>
