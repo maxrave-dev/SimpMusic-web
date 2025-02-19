@@ -19,9 +19,6 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" className="dark">
-        <head>
-            <AdSense pId="ca-pub-4666740922614578" />
-        </head>
         <body
             className={cn(
                 "min-h-screen bg-background quicksand antialiased",
