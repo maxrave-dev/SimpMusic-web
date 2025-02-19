@@ -21,28 +21,23 @@ const RootLayout = ({ children }) => {
     <html lang="en" className="dark">
         <head>
             <AdSense pId="ca-pub-4666740922614578" />
-            <title>SimpMusic</title>
-            <script type="application/ld+json">
-                {{
-                    "@context" : "https://schema.org",
-                    "@type" : "WebSite",
-                    "name" : "SimpMusic",
-                    "url" : "https://simpmusic.org/"
-                }}
-            </script>
         </head>
-      <body
-        className={cn(
-          "min-h-screen bg-background quicksand antialiased",
-          quicksand.variable
-        )}
-      >
+        <body
+            className={cn(
+                "min-h-screen bg-background quicksand antialiased",
+                quicksand.variable
+            )}
+        >
         <Providers>
-          <Header />
-          {children}
-          <Footer />
+            <Header/>
+            {children}
+            <Footer/>
+            <div itemScope itemType="https://schema.org/WebSite">
+                <link itemProp="url" href="https://simpmusic.org"/>
+                <meta itemProp="name" content="SimpMusic"/>
+            </div>
         </Providers>
-      </body>
+        </body>
     </html>
   );
 };
