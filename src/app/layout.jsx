@@ -21,6 +21,15 @@ const RootLayout = ({ children }) => {
     <html lang="en" className="dark">
         <head>
             <AdSense pId="ca-pub-4666740922614578" />
+            <title>SimpMusic</title>
+            <script type="application/ld+json">
+                {{
+                    "@context" : "https://schema.org",
+                    "@type" : "WebSite",
+                    "name" : "SimpMusic",
+                    "url" : "https://simpmusic.org/"
+                }}
+            </script>
         </head>
       <body
         className={cn(
