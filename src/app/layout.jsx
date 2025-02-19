@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import Providers from "./providers";
 import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
-import AdSense from "@/components/custom/ads/Adsense";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
