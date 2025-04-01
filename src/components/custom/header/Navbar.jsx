@@ -40,6 +40,7 @@ export default function Navbar() {
     { title: "Download", path: "/download" },
     { title: "Donate", path: "/donate" },
     { title: "About Us", path: "/about" },
+    { title: "Blogs", path: "/blogs" },
   ];
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState(false);
