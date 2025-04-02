@@ -45,7 +45,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState(false);
   const pathName = usePathname();
-  console.log("Path name" + pathName);
+  const isBlogPage = pathName.startsWith('/blogs');
+
   if (typeof window !== "undefined") {
     window.onscroll = () => {
       if (window.scrollY > 50) {
@@ -86,10 +87,10 @@ export default function Navbar() {
           </Link>
         </NavbarBrand>
         {menus.map((menu, index) => (
-          <NavbarItem key={index} isActive={pathName == menu.path}>
+          <NavbarItem key={index} isActive={(menu.path === '/blogs' && isBlogPage) || pathName === menu.path}>
             <Button
               color="default"
-              variant={pathName == menu.path ? "solid" : "light"}
+              variant={(menu.path === '/blogs' && isBlogPage) || pathName === menu.path ? "solid" : "light"}
               as={Link}
               size="md"
               href={menu.path}
@@ -119,7 +120,7 @@ export default function Navbar() {
         {menus.map((item, index) => (
             <NavbarMenuItem
                 key={`${item}-${index}`}
-                isActive={pathName == item.path}
+                isActive={(item.path === '/blogs' && isBlogPage) || pathName === item.path}
             >
               <Link
                   className="w-full"
@@ -129,7 +130,7 @@ export default function Navbar() {
               >
                 <p
                     className={
-                      pathName == item.path ? "font-bold" : "font-semibold"
+                      (item.path === '/blogs' && isBlogPage) || pathName === item.path ? "font-bold" : "font-semibold"
                     }
                 >
                   {item.title}

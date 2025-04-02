@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-import BlogCard from '@/components/custom/BlogCard';
 import { databases, COLLECTION_ID, DATABASE_ID, Query } from '@/lib/appwrite';
 import BlogsFilter from '@/components/custom/BlogsFilter';
 
@@ -13,6 +11,7 @@ async function getBlogPosts() {
       COLLECTION_ID,
       [Query.orderDesc('createdAt')]
     );
+    console.log('getBlogPosts', response.documents);
     return response.documents;
   } catch (error) {
     console.error('Error fetching blog posts:', error);
@@ -29,7 +28,6 @@ export default async function BlogsPage() {
         <h1 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
           Blog
         </h1>
-        
         <BlogsFilter blogs={blogs} defaultImage={DEFAULT_IMAGE} />
       </div>
     </div>
