@@ -59,7 +59,7 @@ export default async function BlogPost({ params }) {
         </div>
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
-            {params.lang === 'vi' ? blog.titleVn : blog.title}
+            {params.slug[0] === 'vi' ? blog.titleVn : blog.title}
           </h1>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-400">
