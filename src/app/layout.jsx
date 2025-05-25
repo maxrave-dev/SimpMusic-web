@@ -26,13 +26,14 @@ const RootLayout = ({ children }) => {
             )}
         >
         <Providers>
-            <Script
-                async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578"
-                strategy="afterInteractive"
-                crossOrigin="anonymous"
-            />
-            <Header/>
+            <Header>
+              <Script
+                  async
+                  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578"
+                  strategy="afterInteractive"
+                  crossOrigin="anonymous"
+              />
+            </Header>
             {children}
             <Footer/>
             <div itemScope itemType="https://schema.org/WebSite">
