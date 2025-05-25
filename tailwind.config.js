@@ -19,35 +19,35 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: 'none',
-            color: 'inherit',
+            maxWidth: "none",
+            color: "inherit",
             a: {
-              color: 'inherit',
-              textDecoration: 'none',
+              color: "inherit",
+              textDecoration: "none",
             },
             h1: {
-              color: 'inherit',
+              color: "inherit",
             },
             h2: {
-              color: 'inherit',
+              color: "inherit",
             },
             h3: {
-              color: 'inherit',
+              color: "inherit",
             },
             h4: {
-              color: 'inherit',
+              color: "inherit",
             },
             strong: {
-              color: 'inherit',
+              color: "inherit",
             },
             code: {
-              color: 'inherit',
+              color: "inherit",
             },
             pre: {
-              color: 'inherit',
+              color: "inherit",
             },
             blockquote: {
-              color: 'inherit',
+              color: "inherit",
             },
           },
         },
@@ -112,5 +112,5 @@ module.exports = {
     },
   },
   darkMode: "class",
-  plugins: [nextui(), require('@tailwindcss/typography')],
+  plugins: [nextui(), require("@tailwindcss/typography")],
 };

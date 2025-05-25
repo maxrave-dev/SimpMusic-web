@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Providers from "./providers";
 import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
+import Script from "next/script";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -25,6 +26,12 @@ const RootLayout = ({ children }) => {
             )}
         >
         <Providers>
+            <Script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578"
+                strategy="afterInteractive"
+                crossOrigin="anonymous"
+            />
             <Header/>
             {children}
             <Footer/>
