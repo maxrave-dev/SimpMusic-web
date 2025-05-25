@@ -5,6 +5,7 @@ import Providers from "./providers";
 import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
 import Script from "next/script";
+import { Head } from "next/document";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -19,6 +20,14 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" className="dark">
+        <Head>
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578`}
+            strategy="lazyOnload"
+            crossOrigin="anonymous"
+          />
+        </Head>
         <body
             className={cn(
                 "min-h-screen bg-background quicksand antialiased",
