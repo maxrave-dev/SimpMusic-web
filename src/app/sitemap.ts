@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 import path from "path";
 import { databases, COLLECTION_ID, DATABASE_ID, Query } from '../lib/appwrite';
 
-const baseUrl = process.env.SITE_URL || "http:localhost:3000";
+const baseUrl = "https://simpmusic.org";
 const baseDir = "src/app";
 const excludeDirs = ["api", "fonts"];
 
