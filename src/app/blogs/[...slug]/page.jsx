@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { databases, COLLECTION_ID, DATABASE_ID, Query } from '@/lib/appwrite';
 import LanguageToggle from '@/components/custom/LanguageToggle';
 import AuthorInfo from '@/components/custom/AuthorInfo';
@@ -78,7 +79,7 @@ export default async function BlogPost({ params }) {
           />
         </div>
         <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:bg-gradient-to-r prose-headings:from-gradientstart/60 prose-headings:to-gradientend/60 prose-a:text-blue-500 prose-a:no-underline hover:prose-a:underline prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-pre:rounded-lg prose-pre:p-4 prose-blockquote:border-l-4 prose-blockquote:border-gradientstart/60 prose-blockquote:pl-4 prose-blockquote:italic">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
             {params.slug[0] === 'vi' ? blog.contentVn : blog.content}
           </ReactMarkdown>
         </article>
