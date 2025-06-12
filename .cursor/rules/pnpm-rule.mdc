@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Sử dụng pnpm thay vì npm hoặc các trình quản lý gói khác

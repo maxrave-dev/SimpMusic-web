@@ -2,6 +2,7 @@
 import { Card, CardBody, CardHeader, Image, Link } from "@nextui-org/react";
 import React from "react";
 import { TbBrandNextjs } from "react-icons/tb";
+import NextLink from "next/link";
 
 const communities = [
   {
@@ -78,20 +79,33 @@ const Footer = () => {
           </Card>
         ))}
       </div>
-      <div className="pt-20 grid grid-cols-1 justify-items-center">
+      <div className="pt-20 grid grid-cols-1 justify-items-center gap-2">
         <p className="text-center text-gray-400/80 text-md">
-          © 2023 SimpMusic - Nguyen Duc Tuan Minh
+          SimpMusic app is FOSS and under GPL-3.0 license.
         </p>
-        <Link
-          className="self-center text-center text-gray-400/80 text-md"
-          isExternal
-          showAnchorIcon
-          href="https://nextjs.org/"
-          color="foreground"
-          anchorIcon={<TbBrandNextjs />}
-        >
-          Build with Next.js
-        </Link>
+        <p className="text-center text-gray-400/80 text-md">
+          © 2023-2025 SimpMusic - @maxrave-dev
+        </p>
+        <div className="flex gap-4 items-center">
+          <NextLink href="/privacy-policy" passHref>
+            <span className="text-center text-gray-400/80 text-md hover:text-gray-300 cursor-pointer">
+              Privacy Policy
+            </span>
+          </NextLink>
+          <Link
+            className="text-center text-gray-400/80 text-md"
+            isExternal
+            showAnchorIcon
+            href="https://nextjs.org/"
+            color="foreground"
+            anchorIcon={<TbBrandNextjs />}
+          >
+            Build with Next.js
+          </Link>
+        </div>
+        <p className="pt-2 text-center text-gray-600/80 text-sm">
+          I use AdSense to insert ads in simpmusic.org. <br/>The revenue from ads is help me to maintain the website and the app. Thanks for your support!
+        </p>
       </div>
     </div>
   );

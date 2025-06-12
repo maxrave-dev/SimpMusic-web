@@ -32,20 +32,25 @@ const HomeHeading = () => {
         Stream your favorite music, videos, podcasts, radio and more from
         YouTube Music with SimpMusic for free.
       </h4>
-      <div className="flex items-center justify-start mt-8">
-        <Button
-          color="primary"
-          size="lg"
-          radius="lg"
-          endContent={<MdDownload />}
-        >
-          <Link href="/download">
-            <p className="font-semibold">Download</p>
-          </Link>
-        </Button>
-        <p className="px-4 text-sm text-gray-500/80">
-          Latest version: {version}
-        </p>
+      <div className="flex flex-col items-start gap-8 mt-8">
+        <a href="https://trendshift.io/repositories/13482" target="_blank" rel="noopener noreferrer">
+          <img src="https://trendshift.io/api/badge/repositories/13482" alt="maxrave-dev%2FSimpMusic | Trendshift" style={{width: "250px", height: "55px"}} width="250" height="55"/>
+        </a>
+        <div className="flex items-center">
+          <Button
+            color="primary"
+            size="lg"
+            radius="lg"
+            endContent={<MdDownload />}
+          >
+            <Link href="/download">
+              <p className="font-semibold">Download</p>
+            </Link>
+          </Button>
+          <p className="px-4 text-sm text-gray-500/80">
+            Latest version: {version}
+          </p>
+        </div>
       </div>
       <p className="py-4 text-sm text-gray-500/80">
         Support Android Devices and Android Auto only
