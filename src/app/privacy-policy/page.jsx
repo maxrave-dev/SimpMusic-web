@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
         <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-xl prose-headings:font-semibold prose-headings:my-4 prose-p:my-3 prose-a:text-blue-500 prose-a:no-underline hover:prose-a:underline">
           <p>Welcome to SimpMusic.org!</p>
 
-          <p>At SimpMusic.org (hereinafter referred to as "us," "we," or "our"), we respect the privacy of our visitors and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+          <p>At SimpMusic.org (hereinafter referred to as &quot;us,&quot; &quot;we,&quot; or &quot;our&quot;), we respect the privacy of our visitors and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
 
           <p>Please read this policy carefully. By accessing or using our website, you agree to the terms outlined in this Privacy Policy.</p>
 
@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
           <p><strong>a. Personal Data You Provide to Us:</strong></p>
           <ul>
             <li><strong>Contact Information:</strong> When you contact us via a contact form or email, we may collect your name, email address, and any other information you provide in the message content.</li>
-            <li><strong>Comments:</strong> When you leave comments on the site, we collect the data shown in the comments form, and also the visitor's IP address and browser user agent string to help with spam detection.</li>
+            <li><strong>Comments:</strong> When you leave comments on the site, we collect the data shown in the comments form, and also the visitor&apos;s IP address and browser user agent string to help with spam detection.</li>
           </ul>
 
           <p><strong>b. Data Collected Automatically:</strong></p>
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
 
           <p>We use cookies to:</p>
           <ul>
-            <li>Understand and save user's preferences for future visits.</li>
+            <li>Understand and save user&apos;s preferences for future visits.</li>
             <li>Track and analyze usage and aggregate statistical information from our users.</li>
             <li>Serve and personalize advertisements.</li>
           </ul>
@@ -49,13 +49,13 @@ export default function PrivacyPolicy() {
           <p>We use Google AdSense to display advertisements on SimpMusic.org.</p>
           <ul>
             <li>Google, as a third-party vendor, uses cookies to serve ads on our site.</li>
-            <li>Google's use of the DART cookie enables it to serve ads to our users based on their visit to our site and other sites on the Internet.</li>
+            <li>Google&apos;s use of the DART cookie enables it to serve ads to our users based on their visit to our site and other sites on the Internet.</li>
             <li>Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy at: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a></li>
           </ul>
 
           <p>We have implemented the following Google Analytics services based on Display Advertising: Demographics and Interests Reporting.</p>
 
-          <p>Third-party vendors, including Google, use first-party cookies (such as the Google Analytics cookies) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize, and serve ads based on someone's past visits to our website.</p>
+          <p>Third-party vendors, including Google, use first-party cookies (such as the Google Analytics cookies) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize, and serve ads based on someone&apos;s past visits to our website.</p>
 
           <h2>4. How We Use Your Information</h2>
           <p>We use the information we collect for the following purposes:</p>
@@ -86,14 +86,14 @@ export default function PrivacyPolicy() {
           <h2>6. Data Security</h2>
           <p>The security of your data is important to us. We use reasonable administrative, technical, and physical security measures to help protect your personal information. However, please be aware that no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
 
-          <h2>7. Children's Privacy</h2>
-          <p>Our Service does not address anyone under the age of 13 ("Children"). We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your Children have provided us with Personal Data, please contact us.</p>
+          <h2>7. Children&apos;s Privacy</h2>
+          <p>Our Service does not address anyone under the age of 13 (&quot;Children&quot;). We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your Children have provided us with Personal Data, please contact us.</p>
 
           <h2>8. Links to Other Websites</h2>
-          <p>Our website may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+          <p>Our website may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party&apos;s site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
 
           <h2>9. Changes to This Privacy Policy</h2>
-          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top.</p>
+          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Effective Date&quot; at the top.</p>
 
           <p>You are advised to review this Privacy Policy periodically for any changes.</p>
 
