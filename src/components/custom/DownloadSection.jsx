@@ -2,9 +2,10 @@ import { Image, Link } from "@nextui-org/react";
 import React from "react";
 const store = [
   {
-    name: "Fdroid",
-    url: "https://f-droid.org/packages/com.maxrave.simpmusic/",
-    thumbnail: "https://fdroid.gitlab.io/artwork/badge/get-it-on.png",
+    name: "Github",
+    url: "https://github.com/maxrave-dev/SimpMusic/releases",
+    thumbnail:
+      "https://raw.githubusercontent.com/NeoApplications/Neo-Backup/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png",
   },
   {
     name: "IzzyOnDroid",
@@ -13,10 +14,15 @@ const store = [
       "https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png",
   },
   {
-    name: "Github",
-    url: "https://github.com/maxrave-dev/SimpMusic/releases",
+    name: "OpenAPK",
+    url: "https://www.openapk.net/simpmusic/com.maxrave.simpmusic/",
     thumbnail:
-      "https://raw.githubusercontent.com/NeoApplications/Neo-Backup/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png",
+      "https://www.openapk.net/images/openapk-badge.png",
+  },
+  {
+    name: "Fdroid",
+    url: "https://f-droid.org/packages/com.maxrave.simpmusic/",
+    thumbnail: "https://fdroid.gitlab.io/artwork/badge/get-it-on.png",
   },
 ];
 const DownloadSection = () => {
