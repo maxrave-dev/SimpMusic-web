@@ -79,6 +79,38 @@ const Footer = () => {
           </Card>
         ))}
       </div>
+      <div className="py-10 text-center">
+        <h2 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+          SimpMusic is sponsored by:
+        </h2>
+        <div className="flex flex-col items-center justify-center gap-8 my-8">
+          <a href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer">
+            <Image src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" width={300} alt="DigitalOcean Referral Badge" />
+          </a>
+          <a href="https://crowdin.com" target="_blank" rel="noopener noreferrer">
+            <Image src="https://support.crowdin.com/assets/logos/plate/png/crowdin-logo-with-plate.png" width={300} alt="Crowdin" />
+          </a>
+          <a href="https://sentry.io" target="_blank" rel="noopener noreferrer">
+            <Image src="https://github.com/maxrave-dev/SimpMusic/blob/dev/asset/sentry.svg?raw=true" width={300} alt="Sentry" />
+          </a>
+        </div>
+        <div className="text-center text-gray-400/80">
+            <p className="mb-4">
+                Get free $200 credit over 60 days on DigitalOcean: <Link isExternal showAnchorIcon href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" color="primary">GET NOW</Link>
+            </p>
+            <p className="mt-4">
+                Crowdin and Sentry both have a free enterprise plan for Open-source projects. Follow the URLs:
+            </p>
+            <ul className="list-none mt-2">
+                <li>
+                    <Link isExternal showAnchorIcon href="https://crowdin.com/page/open-source-project-setup-request" color="primary">Open Source License Request Form | Crowdin</Link>
+                </li>
+                <li>
+                    <Link isExternal showAnchorIcon href="https://sentry.io/for/open-source/" color="primary">Sentry for Open Source | Sentry</Link>
+                </li>
+            </ul>
+        </div>
+      </div>
       <div className="pt-20 grid grid-cols-1 justify-items-center gap-2">
         <p className="text-center text-gray-400/80 text-md">
           SimpMusic app is FOSS and under GPL-3.0 license.
