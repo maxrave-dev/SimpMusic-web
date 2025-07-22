@@ -27,7 +27,9 @@ export default function Download() {
     if (Array.isArray(data)) {
       let sum = 0;
       data.forEach((release) => {
-        sum += release.assets[0].download_count;
+        if (release.assets && release.assets.length > 0 && release.assets[0].download_count) {
+          sum += release.assets[0].download_count;
+        }
       });
       console.log(sum);
       const node = nodeRef.current;
