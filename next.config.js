@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "fra.cloud.appwrite.io",
+        hostname: process.env.NEXT_PUBLIC_APPWRITE_IMAGE_ENDPOINT,
       },
     ],
   },
