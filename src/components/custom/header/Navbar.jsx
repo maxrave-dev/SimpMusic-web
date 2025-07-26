@@ -14,12 +14,12 @@ import {
 } from "@nextui-org/react";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { usePathname } from "next/navigation";
-import {Github} from "lucide-react";
-import {useEffect, useState} from "react";
+import { Github } from "lucide-react";
+import { useEffect, useState } from "react";
 
 async function fetcher() {
   const res = await fetch(
-      "https://api.github.com/repos/maxrave-dev/SimpMusic?page=1&per_page=1"
+    "https://api.github.com/repos/maxrave-dev/SimpMusic?page=1&per_page=1"
   );
   if (!res.ok) {
     throw new Error(res.statusText);
@@ -29,7 +29,7 @@ async function fetcher() {
 let formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 export default function Navbar() {
-  const [starCount, setStarCount]= useState("N/A");
+  const [starCount, setStarCount] = useState("N/A");
   useEffect(() => {
     fetcher().then((data) => {
       setStarCount(data.stargazers_count);
@@ -81,7 +81,7 @@ export default function Navbar() {
         <NavbarBrand className="" justify="start">
           <Logo />
           <Link href="/">
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+            <h1 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
               SimpMusic
             </h1>
           </Link>
@@ -101,14 +101,14 @@ export default function Navbar() {
         ))}
         <NavbarItem>
           <Button
-              color="default"
-              variant="light"
-              as={Link}
-              size="md"
-              href="https://github.com/maxrave-dev/SimpMusic"
-              target="_blank"
+            color="default"
+            variant="light"
+            as={Link}
+            size="md"
+            href="https://github.com/maxrave-dev/SimpMusic"
+            target="_blank"
           >
-            <Github/> {formatter.format(starCount)}
+            <Github /> {formatter.format(starCount)}
           </Button>
         </NavbarItem>
         <NavbarItem>
@@ -118,25 +118,25 @@ export default function Navbar() {
 
       <NavbarMenu>
         {menus.map((item, index) => (
-            <NavbarMenuItem
-                key={`${item}-${index}`}
-                isActive={(item.path === '/blogs' && isBlogPage) || pathName === item.path}
+          <NavbarMenuItem
+            key={`${item}-${index}`}
+            isActive={(item.path === '/blogs' && isBlogPage) || pathName === item.path}
+          >
+            <Link
+              className="w-full"
+              color={"foreground"}
+              href={item.path}
+              size="lg"
             >
-              <Link
-                  className="w-full"
-                  color={"foreground"}
-                  href={item.path}
-                  size="lg"
+              <p
+                className={
+                  (item.path === '/blogs' && isBlogPage) || pathName === item.path ? "font-bold" : "font-semibold"
+                }
               >
-                <p
-                    className={
-                      (item.path === '/blogs' && isBlogPage) || pathName === item.path ? "font-bold" : "font-semibold"
-                    }
-                >
-                  {item.title}
-                </p>
-              </Link>
-            </NavbarMenuItem>
+                {item.title}
+              </p>
+            </Link>
+          </NavbarMenuItem>
         ))}
       </NavbarMenu>
     </NavbarNext>

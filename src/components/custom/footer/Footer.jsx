@@ -84,6 +84,9 @@ const Footer = () => {
           SimpMusic is sponsored by:
         </h2>
         <div className="flex flex-col items-center justify-center gap-8 my-8">
+          <a href="https://vercel.com/oss">
+            <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
+          </a>
           <a href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" target="_blank" rel="noopener noreferrer">
             <Image src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" width={300} alt="DigitalOcean Referral Badge" />
           </a>
@@ -95,20 +98,23 @@ const Footer = () => {
           </a>
         </div>
         <div className="text-center text-gray-400/80">
-            <p className="mb-4">
-                Get free $200 credit over 60 days on DigitalOcean: <Link isExternal showAnchorIcon href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" color="primary">GET NOW</Link>
-            </p>
-            <p className="mt-4">
-                Crowdin and Sentry both have a free enterprise plan for Open-source projects. Follow the URLs:
-            </p>
-            <ul className="list-none mt-2">
-                <li>
-                    <Link isExternal showAnchorIcon href="https://crowdin.com/page/open-source-project-setup-request" color="primary">Open Source License Request Form | Crowdin</Link>
-                </li>
-                <li>
-                    <Link isExternal showAnchorIcon href="https://sentry.io/for/open-source/" color="primary">Sentry for Open Source | Sentry</Link>
-                </li>
-            </ul>
+          <p className="mb-4">
+            Get free $200 credit over 60 days on DigitalOcean: <Link isExternal showAnchorIcon href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" color="primary">GET NOW</Link>
+          </p>
+          <p className="mt-4">
+            Crowdin and Sentry both have a free enterprise plan for Open-source projects. Follow the URLs:
+          </p>
+          <ul className="list-none mt-2">
+            <li>
+              <Link isExternal showAnchorIcon href="https://crowdin.com/page/open-source-project-setup-request" color="primary">Open Source License Request Form | Crowdin</Link>
+            </li>
+            <li>
+              <Link isExternal showAnchorIcon href="https://sentry.io/for/open-source/" color="primary">Sentry for Open Source | Sentry</Link>
+            </li>
+          </ul>
+          <p className="mt-4">
+            Check out the <Link isExternal showAnchorIcon href="https://vercel.com/open-source-program" color="primary">Vercel open-source program</Link>
+          </p>
         </div>
       </div>
       <div className="pt-20 grid grid-cols-1 justify-items-center gap-2">
@@ -136,7 +142,7 @@ const Footer = () => {
           </Link>
         </div>
         <p className="pt-2 text-center text-gray-600/80 text-sm">
-          I use AdSense to insert ads in simpmusic.org. <br/>The revenue from ads is help me to maintain the website and the app. Thanks for your support!
+          I use AdSense to insert ads in simpmusic.org. <br />The revenue from ads is help me to maintain the website and the app. Thanks for your support!
         </p>
       </div>
     </div>

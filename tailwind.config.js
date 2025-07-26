@@ -16,6 +16,9 @@ module.exports = {
       screens: {},
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-poppins)"],
+      },
       typography: {
         DEFAULT: {
           css: {

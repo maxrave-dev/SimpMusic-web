@@ -1,15 +1,28 @@
-import { Quicksand } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Providers from "./providers";
 import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
 import Script from "next/script";
+import localFont from 'next/font/local'
 
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
+const poppins = localFont({
+  src: [
+    {
+      path: '../../public/fonts/poppins/Poppins-Regular.ttf',
+      weight: '400'
+    },
+    {
+      path: '../../public/fonts/poppins/Poppins-SemiBold.ttf',
+      weight: '600'
+    },
+    {
+      path: '../../public/fonts/poppins/Poppins-Bold.ttf',
+      weight: '700'
+    }
+  ],
+  variable: '--font-poppins'
+})
 
 export const metadata = {
   title: "SimpMusic",
@@ -19,30 +32,30 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" className="dark">
-        <head>
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578`}
-            strategy="lazyOnload"
-            crossOrigin="anonymous"
-          />
-        </head>
-        <body
-            className={cn(
-                "min-h-screen bg-background quicksand antialiased",
-                quicksand.variable
-            )}
-        >
+      <head>
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578`}
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          poppins.variable,
+        )}
+      >
         <Providers>
-            <Header/>
-            {children}
-            <Footer/>
-            <div itemScope itemType="https://schema.org/WebSite">
-                <link itemProp="url" href="https://simpmusic.org"/>
-                <meta itemProp="name" content="SimpMusic"/>
-            </div>
+          <Header />
+          {children}
+          <Footer />
+          <div itemScope itemType="https://schema.org/WebSite">
+            <link itemProp="url" href="https://simpmusic.org" />
+            <meta itemProp="name" content="SimpMusic" />
+          </div>
         </Providers>
-        </body>
+      </body>
     </html>
   );
 };

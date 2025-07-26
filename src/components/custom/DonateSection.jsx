@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, Button } from "@nextui-org/react";
-import { TbBrandPaypalFilled } from "react-icons/tb";
+import { TbBrandGithub, TbBrandPaypalFilled } from "react-icons/tb";
 import Link from "next/link";
 import { SiBuymeacoffee } from "react-icons/si";
 
@@ -33,15 +33,15 @@ const DonateSection = () => {
             <Button
               rel="noopener noreferrer"
               target="_blank"
-              href="https://paypal.me/maxraveofficial"
+              href="https://github.com/sponsors/maxrave-dev"
               as={Link}
               color="primary"
               size="lg"
               radius="md"
-              endContent={<TbBrandPaypalFilled />}
+              endContent={<TbBrandGithub />}
               className="mb-7"
             >
-              <p className="font-semibold">Donate via PayPal </p>
+              <p className="font-semibold">Donate via GitHub Sponsors </p>
             </Button>
             <Button
               rel="noopener noreferrer"

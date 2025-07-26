@@ -33,7 +33,7 @@ const DescriptionSection = () => {
             </h4>
             <br></br>
             <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-              Use data from YouTube Music with 129kps audio quality or 720p
+              Use data from YouTube Music with upto 256kps audio quality or 1080p
               video quality. Personalize your music experience with SimpMusic.
               UI is inspired by Spotify and YouTube Music.
             </h4>
