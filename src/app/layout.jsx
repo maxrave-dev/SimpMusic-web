@@ -33,12 +33,8 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" className="dark">
       <head>
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578`}
-          strategy="lazyOnload"
-          crossOrigin="anonymous"
-        />
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+          crossorigin="anonymous"></script>
       </head>
       <body
         className={cn(
