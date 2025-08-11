@@ -34,6 +34,7 @@ const RootLayout = ({ children }) => {
     <html lang="en" className="dark">
       <head>
         <Script
+          id="adsense-script"
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
           crossorigin="anonymous"
