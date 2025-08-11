@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "generate-ads": "node scripts/generate-ads-txt.js",
+    "build": "npm run generate-ads && next build",
     "start": "next start",
     "lint": "next lint"
   },
