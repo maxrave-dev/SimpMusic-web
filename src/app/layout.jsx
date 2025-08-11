@@ -35,7 +35,7 @@ const RootLayout = ({ children }) => {
       <Head>
         <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
           crossorigin="anonymous"
-          strategy="afterInteractive">
+          strategy="beforeInteractive">
         </script>
       </Head>
       <body
