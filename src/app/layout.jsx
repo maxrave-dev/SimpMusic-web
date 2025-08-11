@@ -5,6 +5,7 @@ import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
 import Script from "next/script";
 import localFont from 'next/font/local'
+import Head from "next/head";
 
 const poppins = localFont({
   src: [
@@ -32,12 +33,12 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en" className="dark">
-      <head>
-        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+      <Head>
+        <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
           crossorigin="anonymous"
-          strategy="lazyOnload">
-        </script>
-      </head>
+          strategy="afterInteractive">
+        </Script>
+      </Head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
