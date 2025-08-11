@@ -1,28 +1,22 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Get the AdSense publisher ID from environment variables
 const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
-const subdomain = process.env.NEXT_PUBLIC_ADS_SUBDOMAIN;
 
 if (!publisherId) {
-  console.error('Error: NEXT_PUBLIC_ADSENSE_PUBLISHER_ID environment variable is not set.');
+  console.error(
+    "Error: NEXT_PUBLIC_ADSENSE_PUBLISHER_ID environment variable is not set."
+  );
   process.exit(1);
 }
 
 // Create the content for ads.txt
 let adsContent = `google.com, ${publisherId}, DIRECT, f08c47fec0942fa0`;
-
-// Add subdomain if provided
-if (subdomain) {
-  adsContent += `\nsubdomain=${subdomain}`;
-  console.log(`Adding subdomain: ${subdomain}`);
-}
-
 // Define the path to the ads.txt file
-const adsFilePath = path.join(process.cwd(), 'public', 'ads.txt');
+const adsFilePath = path.join(process.cwd(), "public", "ads.txt");
 
 // Write the content to the ads.txt file
 fs.writeFileSync(adsFilePath, adsContent);
