@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import Providers from "./providers";
 import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
-import Script from "next/script";
 import localFont from 'next/font/local'
 import Head from "next/head";
 
@@ -34,10 +33,10 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" className="dark">
       <Head>
-        <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
           crossorigin="anonymous"
           strategy="afterInteractive">
-        </Script>
+        </script>
       </Head>
       <body
         className={cn(
