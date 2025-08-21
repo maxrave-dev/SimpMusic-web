@@ -1,21 +1,23 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Button } from "@nextui-org/react"
+import Link from "next/link"
+import { TbDownload } from "react-icons/tb"
 
 export default function NightlyDownload() {
     const [countdown, setCountdown] = useState(10)
-    const [isRedirecting, setIsRedirecting] = useState(false)
-    // Get the destination URL from environment variable only
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false)
+    // Get the destination URL from environment variable with fallback
     const destinationUrl = process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_URL
 
     useEffect(() => {
         const timer = setInterval(() => {
             setCountdown((prev) => {
                 if (prev <= 1) {
-                    setIsRedirecting(true)
                     clearInterval(timer)
-                    // Redirect to the destination URL
-                    window.location.href = destinationUrl
+                    // Enable button after countdown
+                    setIsButtonEnabled(true)
                     return 0
                 }
                 return prev - 1
@@ -23,7 +25,7 @@ export default function NightlyDownload() {
         }, 1000)
 
         return () => clearInterval(timer)
-    }, [destinationUrl])
+    }, [])
 
     return (
         <section className="download-section">
@@ -77,7 +79,7 @@ export default function NightlyDownload() {
                             {/* Countdown Number */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart to-gradientend">
-                                    {isRedirecting ? '🚀' : countdown}
+                                    {countdown === 0 ? '🚀' : countdown}
                                 </span>
                             </div>
                         </div>
@@ -85,15 +87,35 @@ export default function NightlyDownload() {
 
                     {/* Status Text */}
                     <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-                        {isRedirecting
-                            ? 'Redirecting now...'
-                            : `Redirecting in ${countdown} second${countdown !== 1 ? 's' : ''}...`
+                        {countdown === 0
+                            ? 'Ready to download!'
+                            : `Please wait ${countdown} second${countdown !== 1 ? 's' : ''}...`
                         }
                     </p>
 
+                    {/* Download Button */}
+                    <div className="mb-8">
+                        <Button
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            href={destinationUrl}
+                            as={Link}
+                            color="primary"
+                            size="lg"
+                            radius="md"
+                            endContent={<TbDownload />}
+                            isDisabled={!isButtonEnabled}
+                            className={`${isButtonEnabled ? 'animate-pulse' : ''}`}
+                        >
+                            <p className="font-semibold">
+                                {isButtonEnabled ? 'Download Now' : 'Please Wait...'}
+                            </p>
+                        </Button>
+                    </div>
+
                     {/* Security Notice */}
                     <p className="text-sm text-gray-500/80">
-                        🔒 This is a secure redirect from SimpMusic
+                        🔒 This is a secure download from SimpMusic
                     </p>
                 </div>
             </div>
