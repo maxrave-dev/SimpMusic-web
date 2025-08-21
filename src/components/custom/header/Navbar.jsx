@@ -81,7 +81,7 @@ export default function Navbar() {
         <NavbarBrand className="" justify="start">
           <Logo />
           <Link href="/">
-            <h1 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
+            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
               SimpMusic
             </h1>
           </Link>
