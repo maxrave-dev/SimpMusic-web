@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-poppins)"],
+        sans: ["var(--font-sfpdisplay)"],
       },
       typography: {
         DEFAULT: {

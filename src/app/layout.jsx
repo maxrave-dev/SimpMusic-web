@@ -6,22 +6,22 @@ import Footer from "@/components/custom/footer/Footer";
 import Script from "next/script";
 import localFont from 'next/font/local'
 
-const poppins = localFont({
+const sfpDisplay = localFont({
   src: [
     {
-      path: '../../public/fonts/poppins/Poppins-Regular.ttf',
+      path: '../../public/fonts/sfprodisplay/sf-regular.otf',
       weight: '400'
     },
     {
-      path: '../../public/fonts/poppins/Poppins-SemiBold.ttf',
+      path: '../../public/fonts/sfprodisplay/sf-medium.otf',
       weight: '600'
     },
     {
-      path: '../../public/fonts/poppins/Poppins-Bold.ttf',
+      path: '../../public/fonts/sfprodisplay/sf-bold.otf',
       weight: '700'
     }
   ],
-  variable: '--font-poppins'
+  variable: '--font-sfpdisplay'
 })
 
 export const metadata = {
@@ -57,17 +57,18 @@ const RootLayout = ({ children }) => {
     <html lang="en" className="dark">
       <head>
         <Script
+          id="adsense-script"
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
-          strategy="lazyOnload"
-          crossOrigin="anonymous"
-        />
+          crossorigin="anonymous"
+          strategy="lazyOnload">
+        </Script>
       </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          poppins.variable,
-        )}
+          sfpDisplay.variable,
+        )} suppressHydrationWarning
       >
         <Providers>
           <Header />
