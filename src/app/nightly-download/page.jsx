@@ -1,15 +1,61 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Button } from "@nextui-org/react"
-import Link from "next/link"
-import { TbDownload } from "react-icons/tb"
+import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react"
+import { TbDownload, TbChevronDown } from "react-icons/tb"
+import { FaAndroid, FaWindows, FaLinux, FaApple } from "react-icons/fa"
 
 export default function NightlyDownload() {
     const [countdown, setCountdown] = useState(10)
     const [isButtonEnabled, setIsButtonEnabled] = useState(false)
-    // Get the destination URL from environment variable with fallback
-    const destinationUrl = process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_URL
+    
+    // Download URLs for different platforms
+    const downloadUrls = {
+        android: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_ANDROID_URL || '#',
+        windows: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_WINDOWS_URL || '#',
+        linux: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_LINUX_URL || '#',
+        macos: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_MACOS_URL || '#'
+    }
+    
+    // Platform configurations
+    const platforms = [
+        {
+            name: 'Android',
+            icon: FaAndroid,
+            url: downloadUrls.android,
+            color: 'success',
+            chipColor: 'success',
+            description: 'APK for Android devices',
+            fileType: '.apk'
+        },
+        {
+            name: 'Windows',
+            icon: FaWindows,
+            url: downloadUrls.windows,
+            color: 'primary',
+            chipColor: 'primary',
+            description: 'Installer for Windows',
+            fileType: '.msi'
+        },
+        {
+            name: 'Linux',
+            icon: FaLinux,
+            url: downloadUrls.linux,
+            color: 'warning',
+            chipColor: 'warning',
+            description: 'Package for Linux',
+            fileType: '.deb'
+        },
+        {
+            name: 'macOS',
+            icon: FaApple,
+            url: downloadUrls.macos,
+            color: 'default',
+            chipColor: 'default',
+            description: 'Installer for macOS',
+            fileType: '.dmg'
+        }
+    ]
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -93,24 +139,46 @@ export default function NightlyDownload() {
                         }
                     </p>
 
-                    {/* Download Button */}
+                    {/* Download Button with Dropdown */}
                     <div className="mb-8">
-                        <Button
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            href={destinationUrl}
-                            as={Link}
-                            color="primary"
-                            size="lg"
-                            radius="md"
-                            endContent={<TbDownload />}
-                            isDisabled={!isButtonEnabled}
-                            className={`${isButtonEnabled ? 'animate-pulse' : ''}`}
-                        >
-                            <p className="font-semibold">
-                                {isButtonEnabled ? 'Download Now' : 'Please Wait...'}
-                            </p>
-                        </Button>
+                        <Dropdown placement="bottom" isDisabled={!isButtonEnabled}>
+                            <DropdownTrigger>
+                                <Button
+                                    color="primary"
+                                    size="lg"
+                                    radius="lg"
+                                    isDisabled={!isButtonEnabled}
+                                    startContent={<TbDownload className="text-xl" />}
+                                    endContent={<TbChevronDown className="text-xl" />}
+                                    className={`${isButtonEnabled ? 'animate-pulse' : ''} font-semibold px-8`}
+                                >
+                                    {isButtonEnabled ? 'Download Now' : 'Please Wait...'}
+                                </Button>
+                            </DropdownTrigger>
+                            <DropdownMenu 
+                                aria-label="Download platforms"
+                                variant="flat"
+                                onAction={(key) => {
+                                    const platform = platforms.find(p => p.name.toLowerCase() === key)
+                                    if (platform && platform.url) {
+                                        window.open(platform.url, '_blank', 'noopener,noreferrer')
+                                    }
+                                }}
+                            >
+                                {platforms.map((platform) => {
+                                    const Icon = platform.icon
+                                    return (
+                                        <DropdownItem
+                                            key={platform.name.toLowerCase()}
+                                            startContent={<Icon className="text-xl" />}
+                                            description={platform.description}
+                                        >
+                                            {platform.name}
+                                        </DropdownItem>
+                                    )
+                                })}
+                            </DropdownMenu>
+                        </Dropdown>
                     </div>
 
                     {/* Security Notice */}

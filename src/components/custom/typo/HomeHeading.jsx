@@ -4,6 +4,7 @@ import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import React, {useEffect, useState} from "react";
 import { MdDownload } from "react-icons/md";
+import Announcement from "../Announcement";
 
 async function fetcher() {
   const res = await fetch(
@@ -25,6 +26,7 @@ const HomeHeading = () => {
 
   return (
     <div>
+      <Announcement />
       <h2 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
         A simple music app using YouTube Music for backend
       </h2>

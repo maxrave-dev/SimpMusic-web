@@ -8,10 +8,10 @@ import DownloadInfoSection from "@/components/custom/DownloadInfoSection";
 import AdSense from "@/components/custom/AdSense";
 
 export const metadata = {
-  title: "SimpMusic - Feel free when playing music",
+  title: "SimpMusic",
   description: "SimpMusic is a simple music app using YouTube Music for backend. Free, no ads, and open source.",
   openGraph: {
-    title: "SimpMusic - Feel free when playing music",
+    title: "SimpMusic",
     description: "SimpMusic is a simple music app using YouTube Music for backend. Free, no ads, and open source.",
     images: [
       {
@@ -24,7 +24,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SimpMusic - Feel free when playing music",
+    title: "SimpMusic",
     description: "SimpMusic is a simple music app using YouTube Music for backend. Free, no ads, and open source.",
     images: ["/images/blog/feature.jpg"],
   },
