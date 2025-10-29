@@ -7,6 +7,29 @@ import ScreenshotSection from "@/components/custom/ScreenshotSection";
 import DownloadInfoSection from "@/components/custom/DownloadInfoSection";
 import AdSense from "@/components/custom/AdSense";
 
+export const metadata = {
+  title: "SimpMusic - Feel free when playing music",
+  description: "SimpMusic is a simple music app using YouTube Music for backend. Free, no ads, and open source.",
+  openGraph: {
+    title: "SimpMusic - Feel free when playing music",
+    description: "SimpMusic is a simple music app using YouTube Music for backend. Free, no ads, and open source.",
+    images: [
+      {
+        url: "/images/blog/feature.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SimpMusic - Feel free when playing music",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SimpMusic - Feel free when playing music",
+    description: "SimpMusic is a simple music app using YouTube Music for backend. Free, no ads, and open source.",
+    images: ["/images/blog/feature.jpg"],
+  },
+};
+
 export default function Home() {
   return (
     <>

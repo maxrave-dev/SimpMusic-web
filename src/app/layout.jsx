@@ -27,6 +27,29 @@ const poppins = localFont({
 export const metadata = {
   title: "SimpMusic",
   description: "A simple music app using YouTube Music for backend",
+  metadataBase: new URL("https://simpmusic.org"),
+  openGraph: {
+    title: "SimpMusic",
+    description: "A simple music app using YouTube Music for backend",
+    url: "https://simpmusic.org",
+    siteName: "SimpMusic",
+    images: [
+      {
+        url: "/images/blog/feature.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SimpMusic - Feel free when playing music",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SimpMusic",
+    description: "A simple music app using YouTube Music for backend",
+    images: ["/images/blog/feature.jpg"],
+  },
 };
 
 const RootLayout = ({ children }) => {
@@ -35,7 +58,7 @@ const RootLayout = ({ children }) => {
       <head>
         <Script
           async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666740922614578`}
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
           strategy="lazyOnload"
           crossOrigin="anonymous"
         />

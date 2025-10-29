@@ -12,6 +12,45 @@ import AuthorInfo from '@/components/custom/AuthorInfo';
 
 const DEFAULT_IMAGE = '/images/blog/placeholder.png'; // Placeholder image
 
+export async function generateMetadata({ params }) {
+  const blog = await getBlogPost(params.slug[1]);
+  
+  if (!blog) {
+    return {
+      title: "Blog Post Not Found - SimpMusic",
+      description: "The blog post you are looking for does not exist.",
+    };
+  }
+
+  const title = params.slug[0] === 'vi' ? blog.titleVn : blog.title;
+  const description = params.slug[0] === 'vi' 
+    ? (blog.descriptionVn || "Đọc thêm về SimpMusic - Ứng dụng nghe nhạc đơn giản sử dụng YouTube Music làm backend")
+    : (blog.description || "Read more about SimpMusic - A simple music app using YouTube Music for backend");
+  
+  return {
+    title: `${title} - SimpMusic Blog`,
+    description: description,
+    openGraph: {
+      title: `${title} - SimpMusic Blog`,
+      description: description,
+      images: [
+        {
+          url: blog.imageUrl || "/images/blog/feature.jpg",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} - SimpMusic Blog`,
+      description: description,
+      images: [blog.imageUrl || "/images/blog/feature.jpg"],
+    },
+  };
+}
+
 async function getBlogPost(slug) {
   try {
     const response = await databases.listDocuments(
