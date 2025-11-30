@@ -2,7 +2,7 @@
 
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { MdDownload } from "react-icons/md";
 import Announcement from "../Announcement";
 
@@ -17,12 +17,12 @@ async function fetcher() {
 }
 
 const HomeHeading = () => {
-    const [version, setVersion]= useState("N/A");
-    useEffect(() => {
-        fetcher().then((data) => {
-            setVersion(data[0].tag_name);
-        });
-    }, [version]);
+  const [version, setVersion] = useState("N/A");
+  useEffect(() => {
+    fetcher().then((data) => {
+      setVersion(data[0].tag_name);
+    });
+  }, [version]);
 
   return (
     <div>
@@ -36,7 +36,7 @@ const HomeHeading = () => {
       </h4>
       <div className="flex flex-col items-start gap-8 mt-8">
         <a href="https://trendshift.io/repositories/13482" target="_blank" rel="noopener noreferrer">
-          <img src="https://trendshift.io/api/badge/repositories/13482" alt="maxrave-dev%2FSimpMusic | Trendshift" style={{width: "250px", height: "55px"}} width="250" height="55"/>
+          <img src="https://trendshift.io/api/badge/repositories/13482" alt="maxrave-dev%2FSimpMusic | Trendshift" style={{ width: "250px", height: "55px" }} width="250" height="55" />
         </a>
         <div className="flex items-center">
           <Button
@@ -55,7 +55,7 @@ const HomeHeading = () => {
         </div>
       </div>
       <p className="py-4 text-sm text-gray-500/80">
-        Support Android Devices and Android Auto only
+        Support Android Devices, Android Auto and Desktop (Windows, macOS, Linux)
       </p>
     </div>
   );

@@ -1,5 +1,6 @@
 import { Image, Link } from "@nextui-org/react";
 import React from "react";
+import Announcement from "./Announcement";
 const store = [
   {
     name: "Github",
@@ -43,14 +44,15 @@ const DownloadSection = () => {
         </div>
         <div className="mx-auto place-items-center py-21 sm:py-35 lg:py-42 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <div>
+            <Announcement />
             <h2 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl pb-8 bg-clip-text text-transparent bg-gradient-to-r from-gradientstart/60 to-50% to-gradientend/60">
               Get SimpMusic now!
             </h2>
             <h4 className="scroll-m-20 text-xl font-semibold tracking-tight blink">
-              SimpMusic is available on Android. Download it now!
+              SimpMusic is available on Android and Desktop (Windows, macOS, Linux). Download it now!
             </h4>
             <p className="py-4 text-sm text-gray-500/80">
-              Support Android 8.0 above and Android Auto
+              Support Android 8.0 above and Android Auto, all Desktop platforms
             </p>
           </div>
           <div className="grid grid-cols-1 justify-center">
