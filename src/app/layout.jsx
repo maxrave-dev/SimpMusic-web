@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Providers from "./providers";
 import Header from "@/components/custom/header/Header";
 import Footer from "@/components/custom/footer/Footer";
+import AdblockDetector from "@/components/custom/AdblockDetector";
 import Script from "next/script";
 import localFont from 'next/font/local'
 
@@ -71,6 +72,7 @@ const RootLayout = ({ children }) => {
         )} suppressHydrationWarning
       >
         <Providers>
+          <AdblockDetector />
           <Header />
           {children}
           <Footer />
