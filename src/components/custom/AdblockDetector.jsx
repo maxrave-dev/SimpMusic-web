@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import {
   Modal,
   ModalContent,
@@ -17,16 +18,27 @@ const AdblockDetectorComponent = () => {
   useEffect(() => {
     const detectAdblock = async () => {
       try {
-        const url = `https://doubleclick.net/`;
-        let response = await fetch(url);
+        const url = 'https://doubleclick.net/';
+        const response = await axios.head(url, {
+          timeout: 5000,
+        });
         console.log(response);
 
         // Request succeeded - no adblock
         console.log('AdBlock is not detected');
         setIsAdblockDetected(false);
       } catch (error) {
-        // Request blocked - adblock detected
-        console.log('AdBlock is detected', error);
+        // Request blocked or failed - adblock detected
+        if (error.response) {
+          // Server responded with error status
+          console.log('AdBlock check - server error:', error.response.status);
+        } else if (error.request) {
+          // Request was made but no response (blocked by adblock)
+          console.log('AdBlock is detected - request blocked', error.request);
+        } else {
+          // Error in request setup
+          console.log('AdBlock check error:', error.message);
+        }
         setIsAdblockDetected(true);
       }
       
