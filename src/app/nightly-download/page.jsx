@@ -13,7 +13,9 @@ export default function NightlyDownload() {
     const downloadUrls = {
         android: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_ANDROID_URL || '#',
         windows: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_WINDOWS_URL || '#',
-        linux: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_LINUX_URL || '#',
+        linuxDeb: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_LINUX_DEB_URL || '#',
+        linuxRpm: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_LINUX_RPM_URL || '#',
+        linuxAppImage: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_LINUX_APPIMAGE_URL || '#',
         macos: process.env.NEXT_PUBLIC_NIGHTLY_DOWNLOAD_MACOS_URL || '#'
     }
     
@@ -38,13 +40,31 @@ export default function NightlyDownload() {
             fileType: '.msi'
         },
         {
-            name: 'Linux',
+            name: 'Linux (Deb)',
             icon: FaLinux,
-            url: downloadUrls.linux,
+            url: downloadUrls.linuxDeb,
             color: 'warning',
             chipColor: 'warning',
-            description: 'Package for Linux',
+            description: 'Deb package - x86_64 only',
             fileType: '.deb'
+        },
+        {
+            name: 'Linux (Rpm)',
+            icon: FaLinux,
+            url: downloadUrls.linuxRpm,
+            color: 'warning',
+            chipColor: 'warning',
+            description: 'Rpm package - x86_64 only',
+            fileType: '.rpm'
+        },
+        {
+            name: 'Linux (AppImage)',
+            icon: FaLinux,
+            url: downloadUrls.linuxAppImage,
+            color: 'warning',
+            chipColor: 'warning',
+            description: 'AppImage - x86_64 only',
+            fileType: '.AppImage'
         },
         {
             name: 'macOS',
