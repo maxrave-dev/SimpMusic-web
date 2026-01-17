@@ -96,9 +96,15 @@ const Footer = () => {
           <a href="https://sentry.io" target="_blank" rel="noopener noreferrer">
             <Image src="https://github.com/maxrave-dev/SimpMusic/blob/dev/asset/sentry.svg?raw=true" width={300} alt="Sentry" />
           </a>
+          <a href="https://termius.com" target="_blank" rel="noopener noreferrer">
+            <Image src="/images/blog/termius-logo.svg" width={300} alt="Termius" />
+          </a>
         </div>
+        <p className="text-center text-gray-400/80 mb-4">
+          <Link isExternal showAnchorIcon href="https://termius.com" color="primary">Termius</Link> provides a secure, reliable, and collaborative SSH client.
+        </p>
         <div className="text-center text-gray-400/80">
-          <p className="mb-4">
+          <p className="mt-4">
             Get free $200 credit over 60 days on DigitalOcean: <Link isExternal showAnchorIcon href="https://www.digitalocean.com/?refcode=d7f6eedfb9a9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" color="primary">GET NOW</Link>
           </p>
           <p className="mt-4">
