@@ -6,6 +6,7 @@ import FeatureSection from "@/components/custom/FeatureSection";
 import ScreenshotSection from "@/components/custom/ScreenshotSection";
 import DownloadInfoSection from "@/components/custom/DownloadInfoSection";
 import AdSense from "@/components/custom/AdSense";
+import TopDonatorsSection from "@/components/custom/TopDonatorsSection";
 
 export const metadata = {
   title: "SimpMusic",
@@ -44,6 +45,9 @@ export default function Home() {
         <DownloadInfoSection />
         <AdSense adFormat="rectangle" className="my-8" />
       </div>
+
+      {/* Top Donors Section */}
+      <TopDonatorsSection />
     </>
   );
 }
